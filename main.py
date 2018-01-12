@@ -6,15 +6,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return render_template('index.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-	user = Q360('test', 'password')
-	return user.login()
+	user = Q360('npetty', 'Scav01234')
+	user.login()
+	return user.tasks('NPETTY', '2018-01-11')
 	
 
-## Q360 API Requests ##
+@app.route('/sign')
+def sign():
+	return render_template('test.html')
+
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
