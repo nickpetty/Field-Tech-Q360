@@ -7,51 +7,49 @@
 	<link rel="apple-touch-icon" href="../static/imgs/apple-touch-icon.png">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-
-	<link rel="stylesheet" href="../static/css/index.css">
-
+	<link rel="stylesheet" href="../static/css/login.css">
 </head>
 
 <body>
-	<div style="position:fixed; padding-top:10px; top:0px; z-index:2000; width:100%; background: white;border:0px solid black;border-top-left-radius: 0px;border-top-right-radius: 0px;">
+	<div style="position:fixed; padding-top:10px; top:0px; z-index:2000; width:100%; background: white;"">
     	<center>
-      	<img onclick="getTasks()" src="../static/imgs/logo.png" alt="South Central AV Checklist">
+      	<a href="/"><img src="../static/imgs/logo.png" alt="South Central AV Checklist"></a>
     	</center>
   	</div>
   	
 	<div class="container-fluid" style="padding-top: 100px;">
 		<div class="row">
-			<div class='col'>
-	            <div class="form-group" style="font-size: 3rem;">
-  					<input type="text" class="form-control" id="enddate" style="width:100%;">
-				</div>
-	        </div>
-			<div class="col-md-4" id="taskList">
-				<div class="panel-group" id="taskGroup" role="tablist" aria-multiselectable="true">
-					<!-- Task List -->
+			<div class="col-md-4" >
+				<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+				<div class="container" style="padding-top:50px;">
+
+					<form class="form-signin" action="/login" method="post">
+						<h1 class="form-signin-heading text-muted">Sign In</h1>
+						<input id="user" name="user" type="text" class="form-control" placeholder="Username" required="" autofocus="">
+						<input id="password" name="password" type="password" class="form-control" placeholder="Password" required="">
+						<hr>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+							Sign In
+						</button>
+					</form>
+
+					<center>
+						{{ wrongAlert|safe }}
+					</center>
+
 				</div>
 			</div>
 		</div>
-
-		<footer class="footer" style="position:fixed;bottom:0px;background-color:#2C3539;left:0px;width:100%;">
-	    	<div class="container">
-	        	<center><p class="text-muted" style="padding-top:5px;"><a style="color:gray;" href="/logout">Logout</a></p></center>
-	    	</div>
-	    </footer>
-
 	</div>
 
-
-	<script src="../static/js/index.js?v=13"></script>
+	<!-- <script src="../static/js/index.js"></script> -->
 </body>
 
 </html>

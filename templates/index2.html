@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>SCAV Field Tech Q360</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="../static/imgs/apple-touch-icon.png">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+
+	<script type="text/javascript" src="../static/js/jquery.touchSwipe.min.js"></script>
+
+	<link rel="stylesheet" href="../static/css/index.css?v=101">
+
+</head>
+
+<body>
+
+	<div style="position: fixed; top:40%; left:35%;" id="loading"><img style="width:50%" src="../static/imgs/loading.gif"></div>
+
+	<div class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
+
+ 			<button type="button" id="sidebarCollapse" class="navbar-left btn btn-default btn-lg">
+				<i style="bottom:0px;" class="glyphicon glyphicon-th-list"></i>
+			</button>
+            <div class="navbar-brand navbar-right">
+                <div style="margin-top:5px;" id="activePage">Tasks</div>
+            </div>
+
+			<div class="form-group navbar-right" style="font-size: 3rem;">
+		  		<input type="text" class="form-control" id="enddate" style="margin-top:13px;width:100%;">
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container" style="padding-top: 70px;">
+
+
+		<nav id="sidebar">
+	        <!-- Sidebar Header -->
+	        <div class="sidebar-header">
+	            <center><h3><div onclick="getTasks()"> South Central AV<br>Q360 Field App</div></h3></center>
+	        </div>
+
+	        <!-- Sidebar Links -->
+	        <ul class="list-unstyled components">
+	            <li id="tasksLi" class="active"><a id="tasksSel" href="#tasks">Tasks</a></li>
+	            <li id="callsLi" ><a id="callsSel" href="#calls">Service Calls</a></li>
+	            <li><a href="/logout">Logout</a></li>
+	        </ul>
+	    </nav>
+
+	  	<div id="content">
+    		<div class="container-fluid">
+				<div class="row">
+					
+					<div class='col'>
+						<!-- <h3><center>Tasks</center></h3> -->
+			            
+			        </div>
+					<div class="col-md-4 col-lg-6" id="taskList">
+						<div class="panel-group" id="taskGroup" role="tablist" aria-multiselectable="true">
+
+							<!-- Task List -->
+						</div>
+					</div>
+				</div>
+			</div>
+		<div>
+
+	</div>
+
+
+	<script src="../static/js/index.js?v=107"></script>
+</body>
+
+</html>

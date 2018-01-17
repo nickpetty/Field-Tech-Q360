@@ -1,0 +1,75 @@
+<div class="panel panel-default" style='width: 100%; border-radius: 10px; border-width:3px; border-style: solid; padding-bottom: 5px;'>
+  <div class="--panel-heading--" role="tab" id="heading-{{ task.taskID }}">
+
+    <h4 class="panel-title">
+      <a style="color:black;" data-toggle="collapse" data-parent="#taskGroup"
+         href="#collapse-{{ task.taskID }}" aria-expanded="true" aria-controls="collapse-{{ task.taskID }}">
+        <h4><center>{{ task.company }}</center></h4>
+      </a>
+    </h4>
+  </div>
+
+  <div class="panel-teaser panel-body" style="width:100%;">
+    <center><h5>{{ task.projectTitle }}</h5></center>
+    <label>{{ task.siteContact }}</label>
+    <p><a href="https://maps.google.com/?q={{ task.companyAddress }}">{{ task.companyAddress }}</a></p>
+    <p><a href="tel:{{ task.sitePhone }}">{{ task.sitePhone }}</a></p>
+  </div>
+
+  <div id="collapse-{{ task.taskID }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ task.taskID }}">
+
+    <div class="panel-body">
+      <label>Comments</label>
+      <p><textarea readonly style="width:100%;height:200px;">{{ task.comments }}</textarea></p>
+      <hr>
+      <h4>Timebills:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Start</th>
+            <th scope="col">Hours</th>
+            <th scole="col"><span class="glyphicon glyphicon-plus" style="padding-bottom:4px;" aria-hidden="true"></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <div id="timebills">
+            {% for timebill in task.timebills %}
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{ timebill.category }}</td>
+                <td>{{ timebill.date }} </td>
+                <td>{{ timebill.timebilled }}</td>
+              </tr>
+            {% endfor %}
+          </div>
+        </tbody>
+      </table>
+      <br>
+      <h4>Documents:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">File</th>
+            <!-- <th scole="col"><span class="glyphicon glyphicon-plus" style="padding-bottom:4px;" aria-hidden="true"></span></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <div id="documents">
+            {% for doc in task.documents %}
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{ doc.title }}</td>
+                <td><a href="/download?docno={{ doc.documentno }}&docname={{ doc.docname }}" download>{{ doc.docname }}</a> </td>
+                
+              </tr>
+            {% endfor %}
+          </div>
+        </tbody>
+      </table>      
+
+    </div><!-- end panel-body -->
+
+  </div>
+</div>

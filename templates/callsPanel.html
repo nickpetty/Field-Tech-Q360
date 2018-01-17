@@ -1,0 +1,53 @@
+<div class="panel panel-default" style='width: 100%; border-radius: 10px; border-width:3px; border-style: solid; padding: 5px;'>
+  <div class="--panel-heading--" role="tab" id="heading-{{ call.taskID }}">
+
+    <h4 class="panel-title">
+      <a style="color:black;" data-toggle="collapse" data-parent="#taskGroup"
+         href="#collapse-{{ call.taskID }}" aria-expanded="true" aria-controls="collapse-{{ call.taskID }}">
+        <h4><center>{{ call.company }}</center></h4>
+      </a>
+    </h4>
+  </div>
+
+  <div class="panel-teaser panel-body" >
+    <center><h5>{{ call.projectTitle }}</h5></center>
+    <label>{{ call.siteContact }}</label>
+    <p><a href="https://maps.google.com/?q={{ call.companyAddress }}">{{ call.companyAddress }}</a></p>
+    <p><a href="tel:{{ call.sitePhone }}">{{ call.sitePhone }}</a></p>
+  </div>
+
+  <div id="collapse-{{ call.taskID }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{call.taskID }}">
+
+    <div class="panel-body">
+      <label>Comments</label>
+      <p><textarea readonly style="width:100%;height:200px;">{{ call.comments }}</textarea></p>
+      <hr>
+      <h4>Timebills:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Start</th>
+            <th scope="col">Hours</th>
+            <th scole="col"><span class="glyphicon glyphicon-plus" style="padding-bottom:4px;" aria-hidden="true"></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <div id="timebills">
+            {% for timebill in call.timebills %}
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{ timebill.category }}</td>
+                <td>{{ timebill.date }} </td>
+                <td>{{ timebill.timebilled }}</td>
+              </tr>
+            {% endfor %}
+          </div>
+        </tbody>
+      </table>
+      <br>     
+
+    </div><!-- end panel-body -->
+
+  </div>
+</div>
